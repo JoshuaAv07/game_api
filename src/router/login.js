@@ -33,7 +33,13 @@ loginRouter.post("/register", async (req, res) => {
         username,
         password: hashedPassword
     });
-    res.json(body);
+    try {
+        res.json(body);
+    } 
+    catch (error) {
+        console.error(error);
+    }
+    
 });
 
 loginRouter.post("/login", async (req, res) => {
